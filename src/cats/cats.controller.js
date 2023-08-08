@@ -1,4 +1,5 @@
 import {Bind, Controller, Get, HttpStatus, Param, Res, Delete} from '@nestjs/common';
+import { findIndex } from '../../node_modules/rxjs/dist/types/index';
 
 const GATOS = [
     {
@@ -43,7 +44,16 @@ export class CatsController {
 
     @Delete(':id')
     @Bind(Param('id'))
-    remove(id) {
+    remove(id, res) {
         return `removing cat with id = ${id}.`;
-    }
+        const indexGatoEncontrado = GATOS.findIndex((gato) => gato.id == id)
+        if (indexGatoEncontrado>= 0){
+            res.status(HttpStatus.NO_CONTENT).sent()
+        }
+        else{
+            res.status(HttpStatus.NOT_FOUND).sent()
+        }
+
+           
+}
 }
