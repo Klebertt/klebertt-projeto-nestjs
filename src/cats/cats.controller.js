@@ -64,10 +64,10 @@ import {
     }
   
     @Post()
-    @Bind(Body())
-    create(cat) {
-        GATOS.push(cat)
-        res.status(HttpStatus.CREATED).json(cat)
-        // return `Cadastro um gato ${JSON.stringify(cat)}.`;
+    @Bind(Body(), Res())
+    create(cat, res) {
+      GATOS.push(cat);
+      res.status(HttpStatus.CREATED).json(cat);
+      // return `Cadastrando um gato ${JSON.stringify(cat)}`;
     }
   }
