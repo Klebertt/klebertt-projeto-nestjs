@@ -8,6 +8,7 @@ import {
     Post,
     Param,
     Body,
+    Put
   } from '@nestjs/common';
   
   const GATOS = [
@@ -70,4 +71,11 @@ import {
       res.status(HttpStatus.CREATED).json(cat);
       // return `Cadastrando um gato ${JSON.stringify(cat)}`;
     }
+
+    @Put(':id')
+    @Bind(Param('id'), Body())
+    update(id, cat){
+        return `Atualizando gato com id ${id} e valores ${JSON.stringify(cat)}`
+    }
+
   }
