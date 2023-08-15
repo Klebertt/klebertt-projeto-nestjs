@@ -46,7 +46,7 @@ import { CatsService } from './cats.service';
     
     @Get()
     findAll() {
-      return this.CatsService.findALl();
+      return this.CatsService.findAll();
     }
   
     @Get(':id')

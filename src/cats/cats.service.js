@@ -6,8 +6,12 @@ export class CatsService {
     this.cats = [];
   }
 
-
   findAll(){
     return this.cats;
   }
+  
+  createImageBitmap(cat){
+    this.casts.push(cat)
+  }
+
 }
