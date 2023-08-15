@@ -2,16 +2,28 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class CatsService {
-  constructor(){
+  constructor() {
     this.cats = [];
   }
 
-  findAll(){
+  findAll() {
     return this.cats;
   }
-  
-  createImageBitmap(cat){
-    this.casts.push(cat)
+
+  findById(id) {
+    return this.cats.find((cat) => cat.id == id);
+    // GATOS.find((gato) => gato.id == params.id);
   }
 
+  create(cat) {
+    this.cats.push(cat);
+  }
+
+  findIndexById(id){
+    return this.cats.findIndex(cat => cat.id == id)
+  }
+
+  deleteByIndex(index){
+    this.cats.splice(index, 1);
+  }
 }
