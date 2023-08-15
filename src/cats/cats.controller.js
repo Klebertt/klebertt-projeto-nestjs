@@ -4,12 +4,14 @@ import {
     HttpStatus,
     Controller,
     Delete,
+    Dependencies,
     Get,
     Post,
     Param,
     Body,
     Put
   } from '@nestjs/common';
+import { CatsService } from './cats.service';
   
   const GATOS = [
     {
@@ -35,10 +37,16 @@ import {
   ];
   
   @Controller('cats')
+  @Dependencies(CatsService)
   export class CatsController {
+    
+    constructor(){
+      this.CatsService = CatsService;
+    }
+    
     @Get()
     findAll() {
-      return GATOS;
+      return this.CatsService.findALl();
     }
   
     @Get(':id')
