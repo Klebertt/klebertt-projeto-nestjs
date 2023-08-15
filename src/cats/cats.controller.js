@@ -69,7 +69,7 @@ import {
     create(cat, res) {
       GATOS.push(cat);
       res.status(HttpStatus.CREATED).json(cat);
-      // return `Cadastrando um gato ${JSON.stringify(cat)}`;
+      // return `Cadastrando um gato ${JSON.stringify(cat)}`
     }
 
     @Put(':id')
