@@ -11,7 +11,7 @@ export class CatsService {
   }
 
   findById(id) {
-    return this.cats.find((cat) => cat.id == id);
+    return this.cats.find((cat) => cat.id === id);
     // GATOS.find((gato) => gato.id == params.id);
   }
 
@@ -20,7 +20,7 @@ export class CatsService {
   }
 
   findIndexById(id){
-    return this.cats.findIndex(cat => cat.id == id)
+    return this.cats.findIndex(cat => cat.id === id)
   }
 
   deleteByIndex(index){
