@@ -26,9 +26,9 @@ export class CatsController {
   }
 
   @Get(':id')
-  @Bind(Param(), Res())
-  findOne(params, res) {
-    const gatoEncontrado = this.catsService.findById(params.id);
+  @Bind('id', Res())
+  findOne(id, res) {
+    const gatoEncontrado = this.catsService.findById(id);
     if (gatoEncontrado) {
       res.status(HttpStatus.OK).json(gatoEncontrado);
     } else {
