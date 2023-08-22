@@ -26,4 +26,9 @@ export class CatsService {
   deleteByIndex(index){
     this.cats.splice(index, 1);
   }
+
+  update(index){
+    this.cats.splice(index, 1, cat);
+  }
+
 }

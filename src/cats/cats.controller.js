@@ -83,7 +83,7 @@ export class CatsController {
   @Put(':id')
   @Bind(Param('id'), Body(), Res())
   update(id, cat, res) {
-    const indexGatoEncontrado = GATOS.findIndex((gato) => gato.id == id);
+    const indexGatoEncontrado = this.catsService.findIndexById(id)
     if (indexGatoEncontrado >= 0) {
       GATOS.splice(indexGatoEncontrado, 1, cat);
       res.status(HttpStatus.NO_CONTENT).send();
